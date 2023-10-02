@@ -1,0 +1,23 @@
+class TreeNode:
+    def _init_(self, value=0, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+def dfs_inorder(root):
+    if root:
+        dfs_inorder(root.left)
+        print(root.value)
+        dfs_inorder(root.right)
+
+def bfs(root):
+    if not root:
+        return
+    queue = [root]
+    while queue:
+        node = queue.pop(0)
+        print(node.value)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
